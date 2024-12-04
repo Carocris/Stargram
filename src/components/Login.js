@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import { auth } from "../firebase"; // Ajusta la ruta si es diferente
+import { auth } from "../firebase"; 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import "../styles/Login.css"; // Asegúrate de que este archivo esté importado
+import "../styles/Login.css"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();  // Instanciamos el hook navigate
+  const navigate = useNavigate(); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Verificar que el correo y la contraseña no estén vacíos
+    
     if (!email || !password) {
       alert("Por favor ingrese el correo y la contraseña");
       return;
     }
 
     try {
-      // Iniciar sesión con Firebase Authentication
+     
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Si el login es exitoso, redirigimos a la página principal (Home)
+    
       navigate("/");
 
     } catch (error) {

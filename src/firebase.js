@@ -14,8 +14,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app); // Necesario para la autenticación de usuarios
-const db = getFirestore(app); // Necesario para interactuar con Firestore
-const storage = getStorage(app); // Necesario para interactuar con Firebase Storage
+const auth = getAuth(app); 
+const db = getFirestore(app); 
+const storage = getStorage(app); 
 
 export { auth, db, storage };

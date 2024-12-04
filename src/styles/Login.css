@@ -1,9 +1,7 @@
-/* Estilo del fondo con gradiente */
 .bg-gradient {
-  background: linear-gradient(135deg, #ca204a, #e94d71); /* Tono #ca204a de tu preferencia */
+  background: linear-gradient(135deg, #ca204a, #e94d71); 
 }
 
-/* Estilo de la tarjeta de login */
 .custom-card {
   background-color: #fff;
   border-radius: 15px;
@@ -13,7 +11,7 @@
 .custom-input {
   border-radius: 8px;
   font-size: 16px;
-  padding-left: 40px; /* Espacio para el ícono */
+  padding-left: 40px; 
   background-color: #f8f9fa;
   transition: all 0.3s ease;
 }
@@ -24,7 +22,7 @@
 }
 
 .custom-button {
-  background-color: #ca204a; /* Color personalizado */
+  background-color: #ca204a; 
   border-color: #ca204a;
   color: white;
   border-radius: 8px;
@@ -34,12 +32,12 @@
 }
 
 .custom-button:hover {
-  background-color: #e94d71; /* Un tono más claro para hover */
+  background-color: #e94d71; 
   border-color: #e94d71;
 }
 
 .custom-link {
-  color: #ca204a; /* Color personalizado */
+  color: #ca204a; 
   font-weight: bold;
 }
 

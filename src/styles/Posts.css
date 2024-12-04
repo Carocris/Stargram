@@ -1,42 +1,36 @@
-/* Fondo y estilo general */
 body {
   background-color: #fff;
   font-family: 'Arial', sans-serif;
 }
 
-/* Contenedor de las publicaciones */
 .posts-container {
   padding-top: 70px;
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Título */
 .custom-heading {
   font-size: 48px;
   font-weight: bold;
-  color: #ca204a; /* Color morado */
+  color: #ca204a; 
   text-align: center;
 }
 
-/* Estilo de las tarjetas de post */
 .custom-card {
   border: none;
-  border-radius: 12px; /* Bordes redondeados */
-  overflow: hidden; /* Evitar que las imágenes se salgan */
-  margin-bottom: 20px; /* Espacio entre los posts */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border-radius: 12px; 
+  overflow: hidden; 
+  margin-bottom: 20px; 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   background-color: #fff;
 }
 
-/* Cuerpo de la tarjeta */
 .card-body {
   padding: 20px;
   display: flex;
   flex-direction: column;
 }
 
-/* Estilo de los campos de texto */
 .custom-input {
   padding: 12px;
   font-size: 16px;
@@ -45,14 +39,12 @@ body {
   background-color: #f9f9f9;
 }
 
-/* Estilo de los iconos en los campos */
 .custom-input:focus {
-  border-color: #8e24aa; /* Color morado cuando el campo está enfocado */
+  border-color: #8e24aa;
 }
 
-/* Botón */
 .custom-button {
-  background-color: #ca204a; /* Color morado */
+  background-color: #ca204a;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -64,16 +56,14 @@ body {
 }
 
 .custom-button:hover {
-  background-color: #ca204a; /* Morado más claro en hover */
+  background-color: #ca204a; 
 }
 
-/* Estilo para los botones deshabilitados */
 button:disabled {
   background-color: #6c757d;
   cursor: not-allowed;
 }
 
-/* Estilo de las imágenes */
 .card img {
   width: 100%;
   max-width: 700px;
@@ -82,7 +72,7 @@ button:disabled {
   border-radius: 8px;
 }
 
-/* Estilo del video de YouTube */
+
 .card iframe {
   border-radius: 8px;
   width: 100%;

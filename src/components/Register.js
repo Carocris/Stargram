@@ -5,7 +5,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom'; 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import bcrypt from 'bcryptjs';
-import '../styles/Register.css'; // Asegúrate de que este archivo esté importado
+import '../styles/Register.css'; 
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -22,11 +22,9 @@ const Register = () => {
     try {
       const hashedPassword = bcrypt.hashSync(password, 10);
 
-      // Crear el usuario con email y contraseña
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Guardamos el usuario en Firestore
       await setDoc(doc(db, 'users', user.uid), {
         email,
         username,
@@ -36,7 +34,7 @@ const Register = () => {
       });
 
       alert('Usuario registrado con éxito');
-      navigate('/login'); // Redirigir al login
+      navigate('/login'); 
     } catch (error) {
       console.error("Error al registrar usuario:", error);
       alert(`Error al registrar usuario: ${error.message}`);

@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../firebase"; // Importa Firestore desde Firebase
+import { db } from "../firebase"; 
 import { collection, getDocs, addDoc, serverTimestamp, query, orderBy } from "firebase/firestore"; 
-import { useAuth } from "../context/AuthContext"; // Importa el hook useAuth
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importa Bootstrap
-import 'bootstrap-icons/font/bootstrap-icons.css'; // Importa los iconos de Bootstrap
-import '../styles/Posts.css'; // Importa los estilos
+import { useAuth } from "../context/AuthContext"; 
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
+import '../styles/Posts.css';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
-  const [newPostText, setNewPostText] = useState(""); // Texto del nuevo post
-  const [imageUrl, setImageUrl] = useState(""); // URL de la imagen para el post
-  const [youtubeLink, setYoutubeLink] = useState(""); // Enlace de YouTube
-  const [uploading, setUploading] = useState(false); // Estado para mostrar si está publicando
+  const [newPostText, setNewPostText] = useState(""); 
+  const [imageUrl, setImageUrl] = useState(""); 
+  const [youtubeLink, setYoutubeLink] = useState(""); 
+  const [uploading, setUploading] = useState(false); 
 
-  const { currentUser } = useAuth(); // Obtiene el usuario autenticado
-
-  // Obtener los posts existentes de Firestore
+  const { currentUser } = useAuth(); 
+  
   useEffect(() => {
     const fetchPosts = async () => {
       const postsQuery = query(collection(db, "posts"), orderBy("timestamp", "desc"));
@@ -29,25 +28,22 @@ const Posts = () => {
     fetchPosts();
   }, []);
 
-  // Función para extraer el ID del video de YouTube
   const handleYouTubeLink = (link) => {
     const youtubeRegex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^/]+\/\S+\/|(?:v|e(?:mbed)?)\/|(?:[\w-]{11}))|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
     const match = link.match(youtubeRegex);
-    return match ? match[1] : "";  // Devuelve el ID si es válido, de lo contrario una cadena vacía
+    return match ? match[1] : "";  
   };
 
-  // Crear un nuevo post
+
   const createPost = async (event) => {
     event.preventDefault();
     setUploading(true);
 
-    let imageURL = imageUrl;  // Usamos directamente la URL de la imagen
+    let imageURL = imageUrl;  
 
-    // Procesamos el enlace de YouTube para obtener solo el ID
     const processedYouTubeLink = handleYouTubeLink(youtubeLink);
 
     try {
-      // Agregar el nuevo post a Firestore
       await addDoc(collection(db, "posts"), {
         text: newPostText,
         imageUrl: imageURL, // Guardar la URL de la imagen
@@ -66,9 +62,9 @@ const Posts = () => {
         timestamp: serverTimestamp(),
       }, ...posts]);
 
-      setNewPostText(""); // Limpiar el campo de texto
-      setImageUrl(""); // Limpiar la URL de la imagen
-      setYoutubeLink(""); // Limpiar el enlace de YouTube
+      setNewPostText(""); 
+      setImageUrl(""); 
+      setYoutubeLink(""); 
     } catch (error) {
       console.error("Error al crear el post:", error);
     } finally {
